@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multi-Agent System ｜ Advisor 周报</title>
+  <style>
+    :root {
+      --ink: #1d1d1f;
+      --muted: #6e6e73;
+      --line: #e5e5e7;
+      --soft: #f5f5f7;
+      --paper: #ffffff;
+      --accent: #111111;
+      --blue: #2457d6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #ededf0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.65;
+    }
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 32px auto;
+      background: var(--paper);
+      box-shadow: 0 16px 50px rgba(0, 0, 0, .08);
+      overflow: hidden;
+    }
+    .hero {
+      color: white;
+      background: var(--accent);
+      padding: 42px 54px 38px;
+    }
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #b8b8bd;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 12px; font-size: clamp(28px, 4vw, 44px); line-height: 1.2; letter-spacing: -.04em; }
+    .subtitle { margin: 0; color: #d2d2d7; font-size: 15px; }
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 24px;
+      margin-top: 28px;
+      color: #d2d2d7;
+      font-size: 14px;
+    }
+    .meta span, .placeholder { color: var(--blue); }
+    .hero .meta span { color: #fff; border-bottom: 1px solid #65656b; }
+    main { padding: 42px 54px 54px; }
+    section { margin-bottom: 42px; }
+    .section-title {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 18px;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 8px;
+    }
+    .section-number { color: var(--muted); font-size: 13px; font-weight: 700; letter-spacing: .08em; }
+    h2 { margin: 0; font-size: 23px; letter-spacing: -.02em; }
+    h3 { margin: 28px 0 8px; font-size: 17px; }
+    .lead { color: var(--muted); margin-bottom: 18px; }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .summary-card {
+      min-height: 125px;
+      padding: 18px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+    .summary-card strong { display: block; margin-bottom: 8px; font-size: 14px; }
+    .summary-card p { margin: 0; color: var(--muted); font-size: 14px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { padding: 12px 13px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--soft); font-weight: 700; }
+    td:first-child { width: 12%; font-weight: 700; white-space: nowrap; }
+    .editable { min-height: 34px; outline: none; }
+    .editable:focus { background: #fffbe6; box-shadow: 0 0 0 2px #f2d35e inset; }
+    [contenteditable="true"] { cursor: text; }
+    .callout {
+      margin: 0 0 18px;
+      padding: 14px 16px;
+      background: #fafafa;
+      border-left: 3px solid var(--ink);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .experiment { margin-top: 20px; }
+    .footer-note {
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 760px) {
+      .page { width: 100%; margin: 0; }
+      .hero, main { padding-left: 22px; padding-right: 22px; }
+      .summary-grid, .meta { grid-template-columns: 1fr; }
+      table { display: block; overflow-x: auto; white-space: normal; }
+      th, td { min-width: 150px; }
+      td:first-child { min-width: 78px; }
+    }
+    @media print {
+      body { background: white; }
+      .page { width: 100%; margin: 0; box-shadow: none; }
+      .hero { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .summary-card, th, .callout { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <header class="hero">
+      <p class="eyebrow">Weekly Progress Report</p>
+      <h1>Multi-Agent System ｜ Advisor</h1>
+      <p class="subtitle">双线研发进展周报</p>
+      <div class="meta">
+        <div>周期：<span contenteditable="true">YYYY.MM.DD – YYYY.MM.DD</span></div>
+        <div>更新日期：<span contenteditable="true">YYYY.MM.DD</span></div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="section-title"><span class="section-number">01</span><h2>本周摘要</h2></div>
+        <div class="summary-grid">
+          <div class="summary-card"><strong>Multi-Agent System</strong><p class="editable" contenteditable="true">本周最重要的结论；相对上周的变化；对应证据</p></div>
+          <div class="summary-card"><strong>Advisor（小模型调用大模型）</strong><p class="editable" contenteditable="true">本周最重要的结论；相对上周的变化；对应证据</p></div>
+          <div class="summary-card"><strong>关键风险 / 需要支持</strong><p class="editable" contenteditable="true">影响什么目标；需要什么支持；没有则填“无”</p></div>
+        </div>
+        <table>
+          <thead><tr><th>主线</th><th>当前阶段目标</th><th>本周状态</th><th>本周关键变化</th></tr></thead>
+          <tbody>
+            <tr><td>Multi-Agent System</td><td contenteditable="true">可验收目标</td><td contenteditable="true">正常 / 有风险 / 阻塞</td><td contenteditable="true">一句话</td></tr>
+            <tr><td>Advisor</td><td contenteditable="true">可验收目标</td><td contenteditable="true">正常 / 有风险 / 阻塞</td><td contenteditable="true">一句话</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <div class="section-title"><span class="section-number">02</span><h2>Multi-Agent System</h2></div>
+        <p class="callout"><strong>当前要验证的问题：</strong> 多 Agent 协作在哪类任务上、通过什么机制，能比单 Agent 做得更好？</p>
+        <table>
+          <thead><tr><th>模块</th><th>本周进展与结果</th><th>证据 / 产物</th><th>问题与下一步</th></tr></thead>
+          <tbody>
+            <tr><td>基建</td><td contenteditable="true">编排、工具接入、运行稳定性、轨迹记录等方面的增量</td><td contenteditable="true">代码 / 服务 / 日志链接</td><td contenteditable="true">问题 → 下一步动作</td></tr>
+            <tr><td>数据</td><td contenteditable="true">任务来源、协作轨迹采集、清洗、标注；新增量与可用量</td><td contenteditable="true">数据版本 / 路径</td><td contenteditable="true">覆盖缺口 → 补齐动作</td></tr>
+            <tr><td>方法</td><td contenteditable="true">任务拆解、角色分工、通信、调度、记忆或训练方案；验证结论</td><td contenteditable="true">方案 / 实验链接</td><td contenteditable="true">未解决假设 → 后续实验</td></tr>
+            <tr><td>评测</td><td contenteditable="true">相对基线的质量、成本、时延变化；有效与无效的场景</td><td contenteditable="true">评测任务 / 报告链接</td><td contenteditable="true">失败类型 → 改进动作</td></tr>
+          </tbody>
+        </table>
+        <div class="experiment">
+          <h3>本周关键实验</h3>
+          <table>
+            <thead><tr><th>验证假设</th><th>对照 → 本周方案</th><th>结果与代价</th><th>结论 / 后续决策</th></tr></thead>
+            <tbody><tr><td contenteditable="true">想验证什么</td><td contenteditable="true">仅改变哪些变量</td><td contenteditable="true">质量变化；调用量 / 成本 / 时延变化</td><td contenteditable="true">支持 / 不支持 / 证据不足；继续 / 调整 / 停止</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title"><span class="section-number">03</span><h2>Advisor（小模型调用大模型）</h2></div>
+        <p class="callout"><strong>当前要验证的问题：</strong> 小模型在什么时机、以什么方式调用大模型，能够在可接受的成本下提升任务表现？</p>
+        <table>
+          <thead><tr><th>模块</th><th>本周进展与结果</th><th>证据 / 产物</th><th>问题与下一步</th></tr></thead>
+          <tbody>
+            <tr><td>基建</td><td contenteditable="true">大小模型调用链路、上下文传递、超时处理、缓存、成本统计</td><td contenteditable="true">代码 / 服务 / 日志链接</td><td contenteditable="true">问题 → 下一步动作</td></tr>
+            <tr><td>数据</td><td contenteditable="true">求助场景、建议与反馈轨迹、成功 / 失败样本；新增量与可用量</td><td contenteditable="true">数据版本 / 路径</td><td contenteditable="true">覆盖缺口 → 补齐动作</td></tr>
+            <tr><td>方法</td><td contenteditable="true">求助触发条件、建议形式、建议采纳策略或训练方案；验证结论</td><td contenteditable="true">方案 / 实验链接</td><td contenteditable="true">未解决假设 → 后续实验</td></tr>
+            <tr><td>评测</td><td contenteditable="true">相对小模型独立、大模型独立运行的质量 / 成本 / 时延变化</td><td contenteditable="true">评测任务 / 报告链接</td><td contenteditable="true">无效求助 / 错误建议等问题 → 改进动作</td></tr>
+          </tbody>
+        </table>
+        <div class="experiment">
+          <h3>本周关键实验</h3>
+          <table>
+            <thead><tr><th>验证假设</th><th>对照 → 本周方案</th><th>结果与代价</th><th>结论 / 后续决策</th></tr></thead>
+            <tbody><tr><td contenteditable="true">何时求助 / 如何建议 / 如何采纳</td><td contenteditable="true">仅改变哪些变量</td><td contenteditable="true">质量变化；求助比例 / 成本 / 时延变化</td><td contenteditable="true">支持 / 不支持 / 证据不足；继续 / 调整 / 停止</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+
+      <p class="footer-note">填写口径：只记录本周增量；进展写成「做了什么 → 得到什么结果 → 对下一步的影响」，附可追溯的实验或产物链接。无更新的模块填「本周无新增」即可。完整实验记录放链接；两条主线共用的基建或数据进展只详细写一次，另一处引用。</p>
+    </main>
+  </article>
+</body>
+</html>
