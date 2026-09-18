@@ -68,21 +68,6 @@
     h2 { margin: 0; font-size: 23px; letter-spacing: -.02em; }
     h3 { margin: 28px 0 8px; font-size: 17px; }
     .lead { color: var(--muted); margin-bottom: 18px; }
-    .summary-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-    .summary-card {
-      min-height: 125px;
-      padding: 18px;
-      background: var(--soft);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-    }
-    .summary-card strong { display: block; margin-bottom: 8px; font-size: 14px; }
-    .summary-card p { margin: 0; color: var(--muted); font-size: 14px; }
     table { width: 100%; border-collapse: collapse; font-size: 14px; }
     th, td { padding: 12px 13px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
     th { background: var(--soft); font-weight: 700; }
@@ -108,7 +93,7 @@
     @media (max-width: 760px) {
       .page { width: 100%; margin: 0; }
       .hero, main { padding-left: 22px; padding-right: 22px; }
-      .summary-grid, .meta { grid-template-columns: 1fr; }
+      .meta { grid-template-columns: 1fr; }
       table { display: block; overflow-x: auto; white-space: normal; }
       th, td { min-width: 150px; }
       td:first-child { min-width: 78px; }
@@ -117,7 +102,7 @@
       body { background: white; }
       .page { width: 100%; margin: 0; box-shadow: none; }
       .hero { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-      .summary-card, th, .callout { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      th, .callout { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
       section { break-inside: avoid; }
     }
   </style>
@@ -137,11 +122,6 @@
     <main>
       <section>
         <div class="section-title"><span class="section-number">01</span><h2>本周摘要</h2></div>
-        <div class="summary-grid">
-          <div class="summary-card"><strong>Multi-Agent System</strong><p class="editable" contenteditable="true"></p></div>
-          <div class="summary-card"><strong>Advisor（小模型调用大模型）</strong><p class="editable" contenteditable="true"></p></div>
-          <div class="summary-card"><strong>关键风险 / 需要支持</strong><p class="editable" contenteditable="true"></p></div>
-        </div>
         <table>
           <thead><tr><th>主线</th><th>当前阶段目标</th><th>本周状态</th><th>本周关键变化</th></tr></thead>
           <tbody>
